@@ -1,22 +1,24 @@
 <?php
 
-use Styde\Seeder\Seeder;
-use TeachMe\Entities\TicketComment;
+use TeachMe\Entities\Ticket_comments;
 
-class TicketCommentTableSeeder extends Seeder
+class TicketCommentTableSeeder extends BaseSeeder
 {
     protected $total = 250;
 
+    /**
+     * @return \TeachMe\Entities\Ticket_comments
+     */
     public function getModel()
     {
-        return new TicketComment();
+        return new Ticket_comments();
     }
 
     public function getDummyData(\Faker\Generator $faker, array $customValues = array())
     {
         return [
-            'user_id'   => $this->random('User')->id,
-            'ticket_id' => $this->random('Ticket')->id,
+            'user_id'   => $this->getRandom('User')->id,
+            'ticket_id' => $this->getRandom('Ticket')->id,
             'comment'   => $faker->paragraph(),
             'link'      => $faker->randomElement(['', '', $faker->url]),
         ];
