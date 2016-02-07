@@ -108,7 +108,7 @@ return [
 	|
 	*/
 
-	'providers' => [
+	'providers' => array(
 
 		/*
 		 * Laravel Framework Service Providers...
@@ -136,6 +136,13 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 
+       /*
+        * Vendor Services Provider....
+        */
+
+        'Collective\Html\HtmlServiceProvider',
+
+
 		/*
 		 * Application Service Providers...
 		 */
@@ -145,7 +152,8 @@ return [
 		'TeachMe\Providers\EventServiceProvider',
 		'TeachMe\Providers\RouteServiceProvider',
 
-	],
+
+    ),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -192,6 +200,8 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+        'Form'      => 'Collective\Html\FormFacade',
+        'Html'      => 'Collective\Html\HtmlFacade',
 
 	],
 

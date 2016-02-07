@@ -42,7 +42,7 @@ abstract class BaseSeeder extends Seeder
 
     protected function getRandom($model)
     {
-        if (! $this->collectionExists($model)) {
+        if (!$this->collectionExists($model)) {
             throw new Exception("the $model collection does not exist");
         }
 
@@ -62,7 +62,7 @@ abstract class BaseSeeder extends Seeder
         $reflection = new ReflectionClass($entity);
         $class = $reflection->getShortName();
 
-        if (! $this->collectionExists($class)) {
+        if (!$this->collectionExists($class)) {
             static::$pool[$class] = new Collection();
         }
         static::$pool[$class]->add($entity);

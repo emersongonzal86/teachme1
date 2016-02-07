@@ -12,30 +12,29 @@
 */
 
 Route::get('/', [
-    'as'  => 'tickets.latest',
-    'uses' =>'TicketsController@latest'
+    'as' => 'tickets.latest',
+    'uses' => 'TicketsController@latest',
 ]);
 
 Route::get('/populares', [
-    'as'  => 'tickets.popular',
-    'uses' =>'TicketsController@popular'
+    'as' => 'tickets.popular',
+    'uses' => 'TicketsController@popular',
 ]);
 
 Route::get('/pendientes', [
-    'as'  => 'tickets.open',
-    'uses' =>'TicketsController@open'
+    'as' => 'tickets.open',
+    'uses' => 'TicketsController@open',
 ]);
 
 Route::get('/tutoriales', [
-    'as'  => 'tickets.closed',
-    'uses' =>'TicketsController@closed'
+    'as' => 'tickets.closed',
+    'uses' => 'TicketsController@closed',
 ]);
 
 Route::get('/solicitud/{id}', [
-    'as'  => 'tickets.details',
-    'uses' =>'TicketsController@details'
+    'as' => 'tickets.details',
+    'uses' => 'TicketsController@details',
 ]);
-
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
