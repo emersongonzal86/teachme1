@@ -140,7 +140,7 @@ return [
         * Vendor Services Provider....
         */
 
-        'Collective\Html\HtmlServiceProvider',
+
 
 
 		/*
@@ -151,7 +151,7 @@ return [
 		'TeachMe\Providers\ConfigServiceProvider',
 		'TeachMe\Providers\EventServiceProvider',
 		'TeachMe\Providers\RouteServiceProvider',
-
+        'TeachMe\Providers\HtmlServiceProvider',
 
     ),
 
