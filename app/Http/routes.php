@@ -40,3 +40,30 @@ Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
+
+Route::group(['middleware'=>'auth'],function(){
+
+    //crear solicitudes
+    Route::get('/solicitar',[
+        'as'   => 'tickets.create',
+        'uses' => 'TicketsController@create'
+    ]);
+    Route::post('/solicitar',[
+        'as'   => 'tickets.store',
+        'uses' => 'TicketsController@store'
+    ]);
+
+    //votar
+
+    Route::post('votar/{id}', [
+        'as'   => 'votes.submit',
+        'uses' => 'VotesController@submit'
+
+    ]);
+    Route::delete  ('votar/{id}', [
+        'as'   => 'votes.destroy',
+        'uses' => 'VotesController@destroy'
+
+    ]);
+
+});

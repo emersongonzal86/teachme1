@@ -111,7 +111,8 @@ return [
         'email'    =>'Correo Electrónico',
         'password' =>'Contraseña',
         'password_confirmation'  => 'Confirma tu contraseña',
-        'username' => 'Nombre de Usuario'
+        'username' => 'Nombre de Usuario',
+        'title'    => 'Título'
 
     ],
 
