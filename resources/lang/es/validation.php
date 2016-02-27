@@ -112,7 +112,9 @@ return [
         'password' =>'Contraseña',
         'password_confirmation'  => 'Confirma tu contraseña',
         'username' => 'Nombre de Usuario',
-        'title'    => 'Título'
+        'title'    => 'Título',
+        'comment'  => 'Comentarios',
+        'link'     => 'Enlace'
 
     ],
 
