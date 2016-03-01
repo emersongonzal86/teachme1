@@ -30,19 +30,21 @@
                 <span class="label label-info">{{$user->name}}</span>
             @endforeach
             </p>
-            @if(! currentUser()->hasVoted($ticket))
-            {!! Form::open(['route'=>['votes.submit',$ticket->id],'method'=>'POST']) !!}
-                <button type="submit" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-thumbs-up"></span> Votar
-                </button>
-            {!! Form::close()!!}
-            @else
-            {!! Form::open(['route'=>['votes.destroy',$ticket->id],'method'=>'DELETE']) !!}
+            @if(Auth::check())
+                @if(! currentUser()->hasVoted($ticket))
+                {!! Form::open(['route'=>['votes.submit',$ticket->id],'method'=>'POST']) !!}
+                    <button type="submit" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-thumbs-up"></span> Votar
+                    </button>
+                {!! Form::close()!!}
+                @else
+                {!! Form::open(['route'=>['votes.destroy',$ticket->id],'method'=>'DELETE']) !!}
 
-                <button type="submit" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-thumbs-down"></span> Eliminar Voto
-                </button>
-            {!! Form::close()!!}
+                    <button type="submit" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-thumbs-down"></span> Eliminar Voto
+                    </button>
+                {!! Form::close()!!}
+                @endif
             @endif
 
             <h3>Nuevo Comentario</h3>
@@ -50,7 +52,7 @@
             @include('partials/errors')
 
             <form action="{{route('comments.submit',$ticket->id)}}"method="POST"  accept-charset="UTF-8">
-                <input  type="hidden" name="_token" value="{{csrf_token()}}">
+                {{!!csrf_field()}}
                 <div class="form-group">
                     <label for="comment">Comentarios:</label>
                     <textarea rows="4" class="form-control" name="comment" cols="50" id="comment" >{{old('comment')}}</textarea>
