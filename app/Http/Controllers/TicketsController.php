@@ -13,7 +13,15 @@ class TicketsController extends Controller
 {
     public function latest()
     {
-        $tickets = Ticket::orderBy('created_at','DESC')->paginate(10);
+        $tickets = Ticket::selectRaw(
+            'tickets.*,'
+            .'(SELECT COUNT(*) FROM ticket_comments WHERE ticket_comments.ticket_id=tickets.id) as num_comments,'
+            .'(SELECT COUNT(*) FROM ticket_votes   WHERE ticket_votes.ticket_id=tickets.id) as num_votes'
+
+        )
+            ->orderBy('created_at','DESC')
+            ->with('author')
+            ->paginate(20);
         return view('tickets/list',compact('tickets'));
 
     }

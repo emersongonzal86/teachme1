@@ -64,11 +64,11 @@
 
             <h3>Comentarios ({{count($ticket->comments)}})</h3>
 
-            @foreach($ticket->comments as $comment)
-            <div class="well well-sm">
+            @foreach ($ticket->comments as $comment)
+                <div class="well well-sm">
                 <p><strong>{{ $comment->user->name }}</strong></p>
                 <p>{{ $comment->comment }}</p>
-                @if($comment->link)
+                @if ($comment->link)
                     <p>
                       <a href="{{$comment->link}}" rel="nofollow" target="_blank">
                           {{$comment->link}}
@@ -76,13 +76,14 @@
                       </a>
 
                     </p>
+                @endif
                 <p class="date-t">
-                    <span class="glyphicon glyphicon-time"></span>
-                    {{$comment->created_at->format('d/m/Y h:ia')}}
+                    <span class="glyphicon glyphicon-time"></span>{{$comment->created_at->format('d/m/Y h:ia')}}
+                    Por  {{$ticket->author->name}}
+
                 </p>
-            </div>
+                </div>
             @endforeach
-            </div>
         </div>
     </div>
 </div>
