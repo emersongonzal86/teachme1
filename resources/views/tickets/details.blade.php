@@ -52,7 +52,7 @@
             @include('partials/errors')
 
             <form action="{{route('comments.submit',$ticket->id)}}"method="POST"  accept-charset="UTF-8">
-                {{!!csrf_field()}}
+                <input  type="hidden" name="_token" value="{{csrf_token()}}">
                 <div class="form-group">
                     <label for="comment">Comentarios:</label>
                     <textarea rows="4" class="form-control" name="comment" cols="50" id="comment" >{{old('comment')}}</textarea>

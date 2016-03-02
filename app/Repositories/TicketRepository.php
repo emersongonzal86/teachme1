@@ -48,5 +48,15 @@ class TicketRepository extends BaseRepository{
 
     }
 
+    public function openNew($user, $title)
+    {
+
+        return $user->tickets()->create([
+            'title'   => $title,
+            'status' =>'open'
+
+        ]);
+    }
+
 
 }
